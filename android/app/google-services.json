@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "77880047406",
+    "project_id": "tianguismapp",
+    "storage_bucket": "tianguismapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77880047406:android:11114bd0358f9374812cbf",
+        "android_client_info": {
+          "package_name": "com.example.points"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77880047406-v9s0drp5f7n055b1ngqj29jcsml6rvde.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDnriP_mTeBjXPLIm0lX1gMYznM5m7HXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "77880047406-v9s0drp5f7n055b1ngqj29jcsml6rvde.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
