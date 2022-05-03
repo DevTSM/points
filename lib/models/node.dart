@@ -1,4 +1,4 @@
-import 'dart:html';
+import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geolocator/geolocator.dart';
@@ -19,17 +19,15 @@ class Node {
   factory Node.fromState() {
     return Node(id: "0", index: 0, lat: 0, lng: 0, conections: []);
   }
-  factory Node.fromData(DocumentSnapshot doc) {
-    Map data = doc.data() as Map;
+  factory Node.fromData(Map<String, dynamic> data, int index) {
     return Node(
-        id: doc.id,
-        index: data["v"],
+        id: data["id"],
+        index: data["index"] /*index == 0 ? 0 : index - 1*/,
         lat: data["lat"],
         lng: data["lng"],
         conections: data["conexiones"] != null
-            ? data["conexiones"].map((e) {
-                return Connection.fromData(e);
-              }).toList()
+            ? List.from(
+                data["conexiones"].map((e) => Connection.fromData(e)).toList())
             : []);
   }
   map() {
@@ -47,5 +45,9 @@ class Node {
         lat, lng, nodeConnection.lat, nodeConnection.lng);
     conections
         .add(Connection(id: nodeConnection.id, distance: distanceInMeters));
+  }
+
+  deleteConnection(Node nodeConnection) {
+    conections.removeWhere((element) => element.id == nodeConnection.id);
   }
 }

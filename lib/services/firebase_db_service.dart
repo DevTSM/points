@@ -1,18 +1,27 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:points/models/node.dart';
 
 Future<QuerySnapshot> getLineGPSDoc() {
   return FirebaseFirestore.instance.collection("/Points_GPS_2").get();
 }
 
-getPasillosP() {
-  return FirebaseFirestore.instance.collection("/PasillosGPS").get();
+Future<QuerySnapshot> getNodesDoc() {
+  return FirebaseFirestore.instance.collection("/Nodos").get();
 }
 
-update(String id, List<Map<String, dynamic>> conection) {
+Future<QuerySnapshot> getShops() {
+  return FirebaseFirestore.instance.collection("/Locales").get();
+}
+
+Future<void> update(String id, List<Node> nodes) {
   return FirebaseFirestore.instance
-      .collection("/PasillosGPS")
+      .collection("/Nodos")
       .doc(id)
-      .set({"conexiones": conection});
+      .set({"nodos": nodes.map((e) => e.map()).toList()});
+}
+
+setData(Map<String, dynamic> data) {
+  return FirebaseFirestore.instance.collection("/Nodos").doc().set(data);
 }
 
 class FirebaseDBServices {
