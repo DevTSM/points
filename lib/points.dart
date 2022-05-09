@@ -35,13 +35,13 @@ class _SecondaryPageState extends State<SecondaryPage> {
             "lng": position.longitude,
             "index": 1
           });
-          Navigator.pushReplacement<void, void>(
-            context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) =>
-                  const MyHomePage(title: 'Principal'),
-            ),
-          );
+          // Navigator.pushReplacement<void, void>(
+          //   context,
+          //   MaterialPageRoute<void>(
+          //     builder: (BuildContext context) =>
+          //         const MyHomePage(title: 'Principal'),
+          //   ),
+          // );
         },
         child: Container(
           height: 50,
